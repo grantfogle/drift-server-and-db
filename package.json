@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "node-cron": "^3.0.0"
+    "knex": "^0.95.15",
+    "node-cron": "^3.0.0",
+    "pg": "^8.7.1"
   }
 }
