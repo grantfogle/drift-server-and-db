@@ -2,12 +2,16 @@ const express = require("express");
 const app = express();
 const cron = require("node-cron");
 const http = require("http");
+const queries = require("./queries");
 
 const hostname = "127.0.0.1";
 const PORT = 3000;
 
 app.use(express.json());
 
+app.get("/api/rivers", (req, res) => {
+  queries.listAll().then(students => res.send(students));
+});
 // create basic server that fetches list of river flows daily
 // and returns to my server
 // add authentication
