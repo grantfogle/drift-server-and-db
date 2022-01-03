@@ -3,6 +3,14 @@ const db = require("./database-connection");
 module.exports = {
   listAll() {
     return db("rivers");
+  },
+  createUser({ email, password }) {
+    return db("users")
+      .insert({ email, password })
+      .returning(["user_id", "email"]);
+  },
+  getAllUsers() {
+    return db("users");
   }
   // getPlaylistByName(playlistName) {
   //     return db('playlists').where('playlistName', playlistName);
