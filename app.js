@@ -35,6 +35,24 @@ app.post("/api/login", (req, res, next) => {
   const { email, password } = req.body;
 });
 
+app.delete("/api/user", (req, res, next) => {
+  const { email } = req.body;
+  /*
+  do i check for like a token from ui/correct 
+  password to prove it's legit ?
+  */
+  queries
+    .deleteUser(email)
+    .then(status => {
+      if (status === 1) {
+        res.send({ message: "User deleted" });
+      } else {
+        res.send({ message: "User does not exist" });
+      }
+    })
+    .catch(error => next(error));
+});
+
 // app.delete('/api/user')
 // app.put('/api/user' update password)
 // app.put(/api/river)

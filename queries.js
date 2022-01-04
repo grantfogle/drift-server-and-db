@@ -14,6 +14,11 @@ module.exports = {
   },
   getAllUsers() {
     return db("users");
+  },
+  deleteUser(email) {
+    return db("users")
+      .where("email", email)
+      .delete();
   }
   // getPlaylistByName(playlistName) {
   //     return db('playlists').where('playlistName', playlistName);
