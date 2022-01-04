@@ -76,6 +76,126 @@ exports.seed = function(knex) {
           long: "108.93",
           currentFlow: 350,
           alerts: "offColor"
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Canon City",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 254,
+          alerts: ""
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Granite",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 0,
+          alerts: "frozen"
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Below Pueblo Reservoir",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 106,
+          alerts: "low flows"
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Near Wellsville",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 270,
+          alerts: "low flows"
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Salida",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 258,
+          alerts: "low flows"
+        },
+        {
+          river_name: "Arkansas River",
+          geo_identifier: "Leadville",
+          state: "CO",
+          country: "USA",
+          watershed: "Arkansas",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 0,
+          alerts: "frozen"
+        },
+        {
+          river_name: "Blue River",
+          geo_identifier: "Silverthorne",
+          state: "CO",
+          country: "USA",
+          watershed: "Colorado",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 64,
+          alerts: "low flows"
+        },
+        {
+          river_name: "Blue River",
+          geo_identifier: "Dillon",
+          state: "CO",
+          country: "USA",
+          watershed: "Colorado",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 58,
+          alerts: "low flows"
+        },
+        {
+          river_name: "Blue River",
+          geo_identifier: "Green Mountain",
+          state: "CO",
+          country: "USA",
+          watershed: "Colorado",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 270,
+          alerts: ""
+        },
+        {
+          river_name: "Colorado River",
+          geo_identifier: "Windy Gap (Chimney Rock)",
+          state: "CO",
+          country: "USA",
+          watershed: "Colorado",
+          usgsId: "1244",
+          lat: "55.22",
+          long: "108.93",
+          currentFlow: 0,
+          alerts: "frozen"
         }
       ]);
     });
