@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 
 app.post("/api/signup", (req, res, next) => {
   const { email, password } = req.body;
+  console.log("password", password);
   queries
     .getUser(email)
     .then(user => {
@@ -33,6 +34,18 @@ app.post("/api/signup", (req, res, next) => {
 
 app.post("/api/login", (req, res, next) => {
   const { email, password } = req.body;
+  queries.getUser(email).then(user => {
+    if (user.length === 0) {
+      return res.send({ message: "User not found" });
+    }
+    console.log("user", user);
+    return bcrypt.compare(password, user[0].password).then(isGood => {
+      if (isGood) {
+        return res.send({ user, message: "Authenticated" });
+      }
+      return res.send({ message: "Password is incorrect" });
+    });
+  });
 });
 
 app.delete("/api/user", (req, res, next) => {

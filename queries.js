@@ -7,7 +7,7 @@ module.exports = {
   createUser({ email, password }) {
     return db("users")
       .insert({ email, password })
-      .returning(["user_id", "email"]);
+      .returning(["user_id", "email", "password", "favorites"]);
   },
   getUser(email) {
     return db("users").where("email", email);
@@ -20,13 +20,4 @@ module.exports = {
       .where("email", email)
       .delete();
   }
-  // getPlaylistByName(playlistName) {
-  //     return db('playlists').where('playlistName', playlistName);
-  // },
-  // createPlaylist(newPlaylist) {
-  //     return db('playlists').insert(newPlaylist).returning('*');
-  // },
-  // deletePlaylist(playlistName) {
-  //     return db('playlists').where('playlistName', playlistName).delete();
-  // }
 };
