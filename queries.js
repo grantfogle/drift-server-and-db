@@ -9,6 +9,9 @@ module.exports = {
       .insert({ email, password })
       .returning(["user_id", "email"]);
   },
+  getUser(email) {
+    return db("users").where("email", email);
+  },
   getAllUsers() {
     return db("users");
   }

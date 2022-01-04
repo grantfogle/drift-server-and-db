@@ -16,14 +16,17 @@ app.use(bodyParser.json());
 
 app.post("/api/signup", (req, res, next) => {
   const { email, password } = req.body;
-  bcrypt
-    .hash(password, 10)
-    .then(hashedPassword => {
+  queries
+    .getUser(email)
+    .then(user => {
+      if (user.length > 0) {
+        return res.send({ message: "User already exists" });
+      }
+      let hashedPassword = bcrypt.hashSync(password, 10);
       return queries.createUser({ email, hashedPassword });
     })
     .then(user => {
-      console.log(user);
-      response.json(users[0]);
+      res.json(user);
     })
     .catch(error => next(error));
 });
