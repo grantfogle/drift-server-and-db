@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 app.set("secretKey", "nodeRestApi");
 app.use(cors());
