@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 
 app.post("/api/signup", (req, res, next) => {
   const { email, password } = req.body;
-  console.log("password", password);
   queries
     .getUser(email)
     .then(user => {
@@ -24,7 +23,7 @@ app.post("/api/signup", (req, res, next) => {
         return res.send({ message: "User already exists" });
       }
       let hashedPassword = bcrypt.hashSync(password, 10);
-      return queries.createUser({ email, hashedPassword });
+      return queries.createUser(email, hashedPassword);
     })
     .then(user => {
       res.json(user);
@@ -38,7 +37,6 @@ app.post("/api/login", (req, res, next) => {
     if (user.length === 0) {
       return res.send({ message: "User not found" });
     }
-    console.log("user", user);
     return bcrypt.compare(password, user[0].password).then(isGood => {
       if (isGood) {
         return res.send({ user, message: "Authenticated" });

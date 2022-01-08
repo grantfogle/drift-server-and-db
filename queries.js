@@ -4,7 +4,7 @@ module.exports = {
   listAll() {
     return db("rivers");
   },
-  createUser({ email, password }) {
+  createUser(email, password) {
     return db("users")
       .insert({ email, password })
       .returning(["user_id", "email", "password", "favorites"]);
