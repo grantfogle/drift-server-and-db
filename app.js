@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const flowCron = require("./crons/flow-crons");
 
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
@@ -15,6 +16,8 @@ const PORT = process.env.PORT || 8080;
 app.set("secretKey", "nodeRestApi");
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use(flowCron);
 
 app.post("/api/signup", (req, res, next) => {
   const { email, password } = req.body;
