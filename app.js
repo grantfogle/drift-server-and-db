@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";
-const PORT = 3000;
+const PORT = 8080;
 
 app.set("secretKey", "nodeRestApi");
 app.use(cors());
@@ -23,10 +23,10 @@ app.post("/api/signup", (req, res, next) => {
     .then(user => {
       if (user.length > 0) {
         return res.send({ message: "User already exists" });
+      } else {
+        let hashedPassword = bcrypt.hashSync(password, 10);
+        return queries.createUser(email, hashedPassword);
       }
-
-      let hashedPassword = bcrypt.hashSync(password, 10);
-      return queries.createUser(email, hashedPassword);
     })
     .then(user => {
       const token = jwt.sign({ id: user[0].id }, req.app.get("secretKey"), {
@@ -40,6 +40,7 @@ app.post("/api/signup", (req, res, next) => {
 
 app.post("/api/login", (req, res, next) => {
   const { email, password } = req.body;
+  console.log(req.body);
   queries.getUser(email).then(user => {
     if (user.length === 0) {
       return res.send({ message: "User not found" });
@@ -49,9 +50,10 @@ app.post("/api/login", (req, res, next) => {
         const token = jwt.sign({ id: user[0].id }, req.app.get("secretKey"), {
           expiresIn: "1h"
         });
-
+        res.header("Access-Control-Allow-Origin", "*");
         return res.json({ user: user[0], message: "Authenticated", token });
       }
+      response.header("Access-Control-Allow-Origin", "*");
       return res.send({ message: "Password is incorrect" });
     });
   });
