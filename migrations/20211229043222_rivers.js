@@ -2,18 +2,24 @@
 exports.up = function(knex) {
   return knex.schema.createTable("rivers", river => {
     river.increments("id");
-    river.string("river_name");
-    river.string("geo_identifier");
+    river.string("name");
+    river.string("geo_tag");
     river.string("state");
     river.string("country");
     river.string("watershed");
-    river.string("usgsId");
+    river.string("usgs_id");
     river.string("lat");
     river.string("long");
-    river.integer("currentFlow");
-    river.string("alerts");
+    river.integer("current_cfs");
+    river.boolean("warm_water");
+    river.boolean("low_water");
+    river.boolean("high_water");
+    river.boolean("iced");
   });
 };
+
+// instead of alerts have booleans
+// warm water, low flows, iced, high water, etc.
 // knex migrate:rollback
 exports.down = function(knex) {
   return knex.schema.dropTableIfExists("rivers");
