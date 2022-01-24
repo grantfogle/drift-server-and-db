@@ -12,7 +12,7 @@ exports.up = function(knex) {
     river.string("long");
     river.integer("current_cfs");
     river.boolean("warm_water");
-    river.boolean("low_water");
+    river.boolean("low_flows");
     river.boolean("high_water");
     river.boolean("iced");
   });
