@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { fetchWebData } = require("./crons/riverFlowCron");
 
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
@@ -88,6 +89,12 @@ app.get("/api/users", (req, res, next) => {
 
 app.get("/api/rivers", (req, res) => {
   queries.listAll().then(rivers => res.send(rivers));
+});
+
+app.get("/api/flows", (req, res, next) => {
+  fetchWebData();
+  res.send("asdfasfd");
+  // console.log(req);
 });
 // create basic server that fetches list of river flows daily
 // and returns to my server
