@@ -22,23 +22,34 @@ const fetchWebData = async () => {
     const tds = Array.from(document.querySelectorAll("table tr"));
     const tdsRemovedHeader = tds.slice(2, tds.length - 1);
     const innerTdText = tdsRemovedHeader.map(td => td.innerText);
-    // return tdsRemovedHeader.map(td => td.innerText);
-
-    // const riverHeaders = innerTdText.filter(td => {
-    //   const tdInnerText = td.innerText;
-    //   console.log("inner text", tdInnerText);
-    //   if (tdInnerText.substring(0, 1) === " 1") {
-    //     return tdInnerText;
-    //   }
-    // });
-    return innerTdText;
-    // if it starts with ' 10, then add to rivers array
-    // if it sta
-    // current flow 0.69 	mean flow .34 	.34
-    // return an object with usgs_id, river name,
-    // data, gage height, current flow, mean flow, median flow
-
-    // console.log(data);
+    const filteredHeaders = innerTdText.filter(dataStr => {
+      if (dataStr.substring(0, 2) === " 1") {
+        return dataStr;
+      }
+    });
+    const editedRiverDataText = innerTdText.map(dataRow => {
+      if (
+        dataRow.substring(0, 2) === "06" ||
+        dataRow.substring(0, 2) === "07"
+      ) {
+        // return an object with usgs_id, river name,
+        // data, gage height, current flow, mean flow, median flow
+        const streamArr = dataRow.split("\t");
+        // may process name and str
+        const streamObj = {
+          usgsId: streamArr[0],
+          name: streamArr[1],
+          date: streamArr[2],
+          currentCFS: streamArr[4],
+          meanCFS: streamArr[5],
+          medianCFS: streamArr[6]
+        };
+        return streamObj;
+      }
+      return dataRow;
+    });
+    return editedRiverDataText;
+    // return { filteredHeaders, editedRiverDataText};
   });
   browser.close();
   console.log("bing", data);
