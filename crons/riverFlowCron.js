@@ -30,7 +30,8 @@ const fetchWebData = async () => {
     const editedRiverDataText = innerTdText.map(dataRow => {
       if (
         dataRow.substring(0, 2) === "06" ||
-        dataRow.substring(0, 2) === "07"
+        dataRow.substring(0, 2) === "07" ||
+        dataRow.substring(0, 2) === "09"
       ) {
         // return an object with usgs_id, river name,
         // data, gage height, current flow, mean flow, median flow
@@ -46,9 +47,9 @@ const fetchWebData = async () => {
         };
         return streamObj;
       }
-      return dataRow;
+      return null;
     });
-    return editedRiverDataText;
+    return editedRiverDataText.filter(stuff => stuff !== null);
     // return { filteredHeaders, editedRiverDataText};
   });
   browser.close();
