@@ -11,6 +11,8 @@ exports.up = function(knex) {
     river.string("lat");
     river.string("long");
     river.integer("current_cfs");
+    river.integer("mean_cfs");
+    river.integer("median_cfs");
     river.boolean("warm_water");
     river.boolean("low_flows");
     river.boolean("high_water");

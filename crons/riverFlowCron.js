@@ -1,6 +1,7 @@
 const express = require("express");
 const cron = require("node-cron");
 const puppeteer = require("puppeteer");
+const queries = require("./queries");
 // const axios = require("axios");
 
 function getCrons() {
@@ -12,21 +13,22 @@ function getCrons() {
 const fetchWebData = async () => {
   const browser = await puppeteer.launch({});
   const page = await browser.newPage();
+
   await page.goto(
     "https://waterdata.usgs.gov/co/nwis/current/?type=flow&group_key=huc_cd"
   );
-  //   var element = await page.waitFor("table > table[1]");
-  //   var element = await page.select("<table>");
-  //   var text = await page.evaluate(element => element.textContent, element);
+
   const data = await page.evaluate(() => {
     const tds = Array.from(document.querySelectorAll("table tr"));
     const tdsRemovedHeader = tds.slice(2, tds.length - 1);
     const innerTdText = tdsRemovedHeader.map(td => td.innerText);
+
     const filteredHeaders = innerTdText.filter(dataStr => {
       if (dataStr.substring(0, 2) === " 1") {
         return dataStr;
       }
     });
+
     const editedRiverDataText = innerTdText.map(dataRow => {
       if (
         dataRow.substring(0, 2) === "06" ||
@@ -53,8 +55,13 @@ const fetchWebData = async () => {
     // return { filteredHeaders, editedRiverDataText};
   });
   browser.close();
+  queries.riverData(data);
   console.log("bing", data);
 };
+
+// const updateRiverFlows = async () => {
+
+//}/
 
 // set up node cron for this guy
 // schedule once per day
