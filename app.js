@@ -27,6 +27,7 @@ app.post("/api/signup", (req, res, next) => {
       }
 
       let hashedPassword = bcrypt.hashSync(password, 10);
+      console.log(hashedPassword);
       return queries.createUser(email, hashedPassword);
     })
     .then(user => {

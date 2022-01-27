@@ -1,7 +1,7 @@
 const express = require("express");
 const cron = require("node-cron");
 const puppeteer = require("puppeteer");
-const queries = require("./queries");
+const queries = require("../queries");
 // const axios = require("axios");
 
 function getCrons() {
