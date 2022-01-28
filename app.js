@@ -97,19 +97,16 @@ app.get("/api/flows", (req, res, next) => {
   res.send("asdfasfd");
   // console.log(req);
 });
-// create basic server that fetches list of river flows daily
-// and returns to my server
-// add authentication
-// add user capabilities, user info, favorite rivers
-// schedule crons for early in the morning
-// max of 100 per call, so will setup
-// a call for watershed, starting with colorado river
-const usgsWaterDataUrl =
-  "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
+// const usgsWaterDataUrl =
+//   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
-// make a call to
-// 09058000
+app.post("/api/user-favorite", () => {
+  const { usgsId, userId } = req.body;
+});
 
+app.delete("/api/user-favorite", () => {
+  const { usgsId, userId } = req.body;
+});
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
 //   res.setHeader("Content-Type", "text/plain");
