@@ -1,9 +1,8 @@
 exports.up = function(knex) {
-  return knex.schema.createTable("users", river => {
-    river.increments("user_id");
-    river.string("email");
-    river.string("password");
-    river.string("favorites");
+  return knex.schema.createTable("users", user => {
+    user.increments("userId");
+    user.string("email");
+    user.string("password");
   });
 };
 

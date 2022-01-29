@@ -19,5 +19,23 @@ module.exports = {
     return db("users")
       .where("email", email)
       .delete();
+  },
+  updateRiverFlows(riverDataArr) {
+    riverDataArr.map(river => {
+      if (db("rivers").where("usgsId", river.usgsId)) {
+        db("rivers")
+          .where("usgsId", rivers.usgsId)
+          .update({
+            current_cfs: river.currentCFS,
+            mean_cfs: river.mean,
+            median_cfs: river.medianFlow
+          });
+      }
+    });
+    //
+    // return db()
+  },
+  getUsersFavorites() {
+    return db("userstorivers");
   }
 };

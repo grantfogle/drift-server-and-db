@@ -6,6 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { fetchWebData } = require("./crons/riverFlowCron");
 
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
@@ -26,6 +27,7 @@ app.post("/api/signup", (req, res, next) => {
       }
 
       let hashedPassword = bcrypt.hashSync(password, 10);
+      console.log(hashedPassword);
       return queries.createUser(email, hashedPassword);
     })
     .then(user => {
@@ -89,19 +91,29 @@ app.get("/api/users", (req, res, next) => {
 app.get("/api/rivers", (req, res) => {
   queries.listAll().then(rivers => res.send(rivers));
 });
-// create basic server that fetches list of river flows daily
-// and returns to my server
-// add authentication
-// add user capabilities, user info, favorite rivers
-// schedule crons for early in the morning
-// max of 100 per call, so will setup
-// a call for watershed, starting with colorado river
-const usgsWaterDataUrl =
-  "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
-// make a call to
-// 09058000
+app.get("/api/flows", (req, res, next) => {
+  fetchWebData();
+  res.send("asdfasfd");
+  // console.log(req);
+});
+// const usgsWaterDataUrl =
+//   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
+app.get("/api/users-favorites", (req, res, next) => {
+  queries
+    .getUsersFavorites()
+    .then(usersFaves => res.send(usersFaves))
+    .catch(error => next(error));
+});
+
+app.post("/api/user-favorite", () => {
+  const { usgsId, userId } = req.body;
+});
+
+app.delete("/api/user-favorite", () => {
+  const { usgsId, userId } = req.body;
+});
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
 //   res.setHeader("Content-Type", "text/plain");
