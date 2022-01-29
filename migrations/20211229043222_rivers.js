@@ -9,13 +9,14 @@ exports.up = function(knex) {
     river.string("usgsId");
     river.string("lat");
     river.string("long");
-    river.integer("currentCFS");
-    river.integer("meanCFS");
-    river.integer("medianCFS");
+    river.float("currentCFS");
+    river.float("meanCFS");
+    river.float("medianCFS");
     river.boolean("warmWater");
-    river.boolean("lowFlows");
+    river.boolean("lowWater");
     river.boolean("highWater");
     river.boolean("iced");
+    river.boolean("defaultDisplay");
   });
 };
 

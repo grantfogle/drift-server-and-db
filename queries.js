@@ -34,5 +34,8 @@ module.exports = {
     });
     //
     // return db()
+  },
+  getUsersFavorites() {
+    return db("userstorivers");
   }
 };

@@ -4,7 +4,7 @@ exports.seed = function(knex) {
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex("usertorivers").insert([
+      return knex("userstorivers").insert([
         { userId: 1, usgsId: "013344" },
         { userId: 2, usgsId: "045566" }
       ]);
