@@ -37,5 +37,8 @@ module.exports = {
   },
   getUsersFavorites() {
     return db("userstorivers");
+  },
+  getTopRivers() {
+    return db("rivers").where("defaultDisplay", true);
   }
 };

@@ -100,6 +100,13 @@ app.get("/api/flows", (req, res, next) => {
 // const usgsWaterDataUrl =
 //   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
+app.get("/api/top-rivers", (req, res, next) => {
+  queries
+    .getTopRivers()
+    .then(topRivers => res.send(topRivers))
+    .catch(error => next(error));
+});
+
 app.get("/api/users-favorites", (req, res, next) => {
   queries
     .getUsersFavorites()
