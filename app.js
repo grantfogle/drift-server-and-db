@@ -107,10 +107,15 @@ app.get("/api/top-rivers", (req, res, next) => {
     .catch(error => next(error));
 });
 
-app.get("/api/users-favorites", (req, res, next) => {
+app.get("/api/users-favorites/:userId", (req, res, next) => {
+  const { userId } = req.params;
+  console.log("userID", req.params);
   queries
-    .getUsersFavorites()
-    .then(usersFaves => res.send(usersFaves))
+    .getUsersFavorites(userId)
+    .then(usersFaves => {
+      console.log(usersFaves);
+      res.send(usersFaves);
+    })
     .catch(error => next(error));
 });
 

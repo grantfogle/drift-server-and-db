@@ -35,8 +35,9 @@ module.exports = {
     //
     // return db()
   },
-  getUsersFavorites() {
-    return db("userstorivers");
+  getUsersFavorites(userId) {
+    const userFaves = db("userstorivers").where("userId", userId);
+    // gunna have to fetch user rivers by user faves
   },
   getTopRivers() {
     return db("rivers").where("defaultDisplay", true);
