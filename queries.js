@@ -41,5 +41,11 @@ module.exports = {
   },
   getTopRivers() {
     return db("rivers").where("defaultDisplay", true);
+  },
+  getByRivers(riverName) {
+    return db("rivers").where("name", riverName);
+  },
+  getByWatershed(watershedName) {
+    return db("rivers").where("watershed", watershedName);
   }
 };

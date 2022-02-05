@@ -17,6 +17,10 @@ app.set("secretKey", "nodeRestApi");
 app.use(cors());
 app.use(bodyParser.json());
 
+/*
+  AUTHENTICATION
+*/
+
 app.post("/api/signup", (req, res, next) => {
   const { email, password } = req.body;
   queries
@@ -77,19 +81,44 @@ app.delete("/api/user", (req, res, next) => {
     .catch(error => next(error));
 });
 
-// app.put('/api/user' update password)
-// app.put(/api/river)
-// app.delete('/api/river')
-
 app.get("/api/users", (req, res, next) => {
   queries
     .getAllUsers()
     .then(users => res.send(users))
     .catch(error => next(error));
 });
-
+/*
+  RIVERS & WATERSHED
+*/
 app.get("/api/rivers", (req, res) => {
   queries.listAll().then(rivers => res.send(rivers));
+});
+
+app.get("/api/top-rivers", (req, res, next) => {
+  queries
+    .getTopRivers()
+    .then(topRivers => res.send(topRivers))
+    .catch(error => next(error));
+});
+
+app.post("/api/rivers", (req, res, next) => {
+  const { riverName } = req.body;
+  queries
+    .getByWatershed(riverName)
+    .then(rivers => {
+      res.send(rivers);
+    })
+    .catch(err => res.send({ status: "Error retrieving rivers" }));
+});
+
+app.post("/api/watershed", (req, res, next) => {
+  const { watershedName } = req.body;
+  queries
+    .getByWatershed(watershedName)
+    .then(rivers => {
+      res.send(rivers);
+    })
+    .catch(err => res.send({ status: "Error retrieving rivers" }));
 });
 
 app.get("/api/flows", (req, res, next) => {
@@ -100,20 +129,15 @@ app.get("/api/flows", (req, res, next) => {
 // const usgsWaterDataUrl =
 //   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
-app.get("/api/top-rivers", (req, res, next) => {
-  queries
-    .getTopRivers()
-    .then(topRivers => res.send(topRivers))
-    .catch(error => next(error));
-});
+/*
+  FAVORITES
+*/
 
 app.get("/api/users-favorites/:userId", (req, res, next) => {
   const { userId } = req.params;
-  console.log("userID", req.params);
   queries
     .getUsersFavorites(userId)
     .then(usersFaves => {
-      console.log(usersFaves);
       res.send(usersFaves);
     })
     .catch(error => next(error));
@@ -126,6 +150,11 @@ app.post("/api/user-favorite", () => {
 app.delete("/api/user-favorite", () => {
   const { usgsId, userId } = req.body;
 });
+
+// app.put('/api/user' update password)
+// app.put(/api/river)
+// app.delete('/api/river')
+
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
 //   res.setHeader("Content-Type", "text/plain");
