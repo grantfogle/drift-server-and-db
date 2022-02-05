@@ -104,7 +104,7 @@ app.get("/api/top-rivers", (req, res, next) => {
 app.post("/api/rivers", (req, res, next) => {
   const { riverName } = req.body;
   queries
-    .getByWatershed(riverName)
+    .getByRivers(riverName)
     .then(rivers => {
       res.send(rivers);
     })
