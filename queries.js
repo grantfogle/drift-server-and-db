@@ -36,17 +36,27 @@ module.exports = {
     // return db()
   },
   getUsersFavorites(userId) {
-    // usgsId: "06714215",
-    //       name: "south platte river",
-    //       geoTag: "AT 64TH AVE. COMMERCE CITY, CO.",
-    //       state: "CO",
-    //       country: "USA",
     return db("userstorivers")
       .select("rivers.name", "rivers.geoTag")
       .join("rivers", "rivers.usgsId", "userstorivers.usgsId")
       .join("users", "users.userId", "userstorivers.userId")
       .where("users.userId", userId);
-    // return db("userstorivers").where("userId", userId);
+  },
+  addUserFavorite(userId, usgsId) {
+    return db("userstorivers")
+      .insert({ userId, usgsId })
+      .returning("userId", "usgsId");
+  },
+  removeUserFavorite(userId, usgsId) {
+    return db("userstorivers")
+      .where({
+        userId: userId,
+        usgsId: usgsId
+      })
+      .delete();
+  },
+  getUsersToRivers() {
+    return db("userstorivers");
   },
   getTopRivers() {
     return db("rivers").where("defaultDisplay", true);

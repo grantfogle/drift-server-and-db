@@ -137,30 +137,22 @@ app.get("/api/users-favorites/:userId", (req, res, next) => {
   queries
     .getUsersFavorites(userId)
     .then(usersFaves => {
-      console.log(usersFaves);
-      // console.log(usersFaves);
-      // if (usersFaves.length > 0) {
-      //   let favoriteRiversArr = usersFaves.map(favoriteRiver => {
-      //     queries.getByRiversId(favoriteRiver.usgsId).then(favoriteRes => {
-      //       console.log(favoriteRes);
-      //       return favoriteRes;
-      // favoriteRiversArr.push(favoriteRes);
-      //     });
-      //   });
-      //   return favoriteRiversArr;
-      // } else {
-      //   res.send({ count: 0 });
-      // }
-      // return favoriteRiversArr;
+      res.send(usersFaves);
     })
-    // .then(favoriteRiverArr => {
-    //   res.send(favoriteRiverArr);
-    // })
     .catch(error => next(error));
 });
 
-app.post("/api/user-favorite", () => {
-  const { usgsId, userId } = req.body;
+app.get("/api/favorites", (req, res, next) => {
+  queries.getUsersToRivers().then(usersFaves => {
+    res.send(usersFaves);
+  });
+});
+
+app.post("/api/favorites", (req, res, next) => {
+  const { userId, usgsId } = req.body;
+  queries.addUserFavorite(userFaves => {
+    res.send({ status: 200, message: "User favorite added" });
+  });
 });
 
 app.delete("/api/user-favorite", () => {
