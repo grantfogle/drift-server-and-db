@@ -36,11 +36,23 @@ module.exports = {
     // return db()
   },
   getUsersFavorites(userId) {
-    const userFaves = db("userstorivers").where("userId", userId);
-    // gunna have to fetch user rivers by user faves
+    // usgsId: "06714215",
+    //       name: "south platte river",
+    //       geoTag: "AT 64TH AVE. COMMERCE CITY, CO.",
+    //       state: "CO",
+    //       country: "USA",
+    return db("userstorivers")
+      .select("rivers.name", "rivers.geoTag")
+      .join("rivers", "rivers.usgsId", "userstorivers.usgsId")
+      .join("users", "users.userId", "userstorivers.userId")
+      .where("users.userId", userId);
+    // return db("userstorivers").where("userId", userId);
   },
   getTopRivers() {
     return db("rivers").where("defaultDisplay", true);
+  },
+  getByRiversId(riverId) {
+    return db("rivers").where("usgsId", riverId);
   },
   getByRivers(riverName) {
     return db("rivers").where("name", riverName);

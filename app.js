@@ -124,7 +124,6 @@ app.post("/api/watershed", (req, res, next) => {
 app.get("/api/flows", (req, res, next) => {
   fetchWebData();
   res.send("asdfasfd");
-  // console.log(req);
 });
 // const usgsWaterDataUrl =
 //   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
@@ -138,8 +137,25 @@ app.get("/api/users-favorites/:userId", (req, res, next) => {
   queries
     .getUsersFavorites(userId)
     .then(usersFaves => {
-      res.send(usersFaves);
+      console.log(usersFaves);
+      // console.log(usersFaves);
+      // if (usersFaves.length > 0) {
+      //   let favoriteRiversArr = usersFaves.map(favoriteRiver => {
+      //     queries.getByRiversId(favoriteRiver.usgsId).then(favoriteRes => {
+      //       console.log(favoriteRes);
+      //       return favoriteRes;
+      // favoriteRiversArr.push(favoriteRes);
+      //     });
+      //   });
+      //   return favoriteRiversArr;
+      // } else {
+      //   res.send({ count: 0 });
+      // }
+      // return favoriteRiversArr;
     })
+    // .then(favoriteRiverArr => {
+    //   res.send(favoriteRiverArr);
+    // })
     .catch(error => next(error));
 });
 
