@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { fetchWebData } = require("./crons/riverFlowCron");
-
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";
@@ -31,7 +30,6 @@ app.post("/api/signup", (req, res, next) => {
       }
 
       let hashedPassword = bcrypt.hashSync(password, 10);
-      console.log(hashedPassword);
       return queries.createUser(email, hashedPassword);
     })
     .then(user => {
@@ -125,8 +123,6 @@ app.get("/api/flows", (req, res, next) => {
   fetchWebData();
   res.send("asdfasfd");
 });
-// const usgsWaterDataUrl =
-//   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
 /*
   FAVORITES
@@ -151,26 +147,12 @@ app.get("/api/favorites", (req, res, next) => {
 app.post("/api/favorites", (req, res, next) => {
   const { userId, usgsId } = req.body;
   queries.addUserFavorite(userFaves => {
-    res.send({ status: 200, message: "User favorite added" });
+    res.status(201).send({ message: "User favorite added" });
   });
 });
 
 app.delete("/api/user-favorite", () => {
   const { usgsId, userId } = req.body;
 });
-
-// app.put('/api/user' update password)
-// app.put(/api/river)
-// app.delete('/api/river')
-
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader("Content-Type", "text/plain");
-//   res.end("Hello World");
-// });
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
 
 app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
