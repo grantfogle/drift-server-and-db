@@ -37,7 +37,24 @@ module.exports = {
   },
   getUsersFavorites(userId) {
     return db("userstorivers")
-      .select("rivers.name", "rivers.geoTag")
+      .select(
+        "rivers.name",
+        "rivers.geoTag",
+        "rivers.state",
+        "rivers.country",
+        "rivers.watershed",
+        "rivers.usgsId",
+        "rivers.lat",
+        "rivers.long",
+        "rivers.currentCFS",
+        "rivers.meanCFS",
+        "rivers.medianCFS",
+        "rivers.warmWater",
+        "rivers.lowWater",
+        "rivers.highWater",
+        "rivers.iced",
+        "rivers.defaultDisplay"
+      )
       .join("rivers", "rivers.usgsId", "userstorivers.usgsId")
       .join("users", "users.userId", "userstorivers.userId")
       .where("users.userId", userId);

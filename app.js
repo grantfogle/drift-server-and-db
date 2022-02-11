@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { fetchWebData } = require("./crons/riverFlowCron");
+const { formatRiverData } = require("./services/rivers-response");
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";
@@ -95,7 +96,10 @@ app.get("/api/rivers", (req, res) => {
 app.get("/api/top-rivers", (req, res, next) => {
   queries
     .getTopRivers()
-    .then(topRivers => res.send(topRivers))
+    .then(topRivers => {
+      const formattedRiverData = formatRiverData(topRivers, false);
+      res.send(formattedRiverData);
+    })
     .catch(error => next(error));
 });
 
@@ -128,12 +132,13 @@ app.get("/api/flows", (req, res, next) => {
   FAVORITES
 */
 
-app.get("/api/users-favorites/:userId", (req, res, next) => {
+app.get("/api/favorites/:userId", (req, res, next) => {
   const { userId } = req.params;
   queries
     .getUsersFavorites(userId)
     .then(usersFaves => {
-      res.send(usersFaves);
+      const formattedUserFaves = formatRiverData(usersFaves, true);
+      res.status(201).send(formattedUserFaves);
     })
     .catch(error => next(error));
 });
