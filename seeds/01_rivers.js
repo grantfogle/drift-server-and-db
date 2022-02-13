@@ -5,7 +5,7 @@ exports.seed = function(knex) {
       return knex("rivers").insert([
         {
           name: "colorado river",
-          geoTag: "BELOW BAKER GULCH NR GRAND LAKE, CO",
+          geoTag: "Below Baker Gulch NR Grand Lake",
           state: "CO",
           country: "USA",
           watershed: "colorado basin",
@@ -24,7 +24,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09015000",
           name: "colorado river",
-          geoTag: "BELOW SHADOW MOUNTAIN RESERVOIR, CO.",
+          geoTag: "Below Shadow Mountain Reservoir",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -42,7 +42,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09019000",
           name: "colorado river",
-          geoTag: "BELOW LAKE GRANBY, CO.",
+          geoTag: "Below Lake Granby",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -60,7 +60,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09019500",
           name: "colorado river",
-          geoTag: "NEAR GRANBY, CO",
+          geoTag: "Near Grandby",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -78,7 +78,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09034250",
           name: "colorado river",
-          geoTag: "AT WINDY GAP, NEAR GRANBY, CO.",
+          geoTag: "at Windy Gap",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -96,7 +96,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09058000",
           name: "colorado river",
-          geoTag: "NEAR KREMMLING, CO",
+          geoTag: "near Kremmling",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -114,7 +114,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09060799",
           name: "colorado river",
-          geoTag: "AT CATAMOUNT BRIDGE, CO",
+          geoTag: "at Catamount Bridge",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -132,7 +132,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09070500",
           name: "colorado river",
-          geoTag: "NEAR DOTSERO, CO",
+          geoTag: "near Dotsero",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -150,7 +150,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09085100",
           name: "colorado river",
-          geoTag: "BELOW GLENWOOD SPRINGS, CO",
+          geoTag: "below Glenwood Springs",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -168,7 +168,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09095500",
           name: "colorado river",
-          geoTag: "NEAR CAMEO, CO.",
+          geoTag: "near Cameo",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -186,7 +186,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09163500",
           name: "colorado river",
-          geoTag: "NEAR COLORADO-UTAH STATE LINE",
+          geoTag: "near CO/UT State Line",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -204,7 +204,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07079300",
           name: "east fork arkansas river",
-          geoTag: "AT US HIGHWAY 24, NR LEADVILLE, CO.",
+          geoTag: "at US 24 near Leadville",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -222,7 +222,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07081200",
           name: "arkansas river",
-          geoTag: "NEAR LEADVILLE, CO",
+          geoTag: "near Leadville",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -240,7 +240,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07083710",
           name: "arkansas river",
-          geoTag: "BELOW EMPIRE GULCH NEAR MALTA, CO",
+          geoTag: "below Empire Gulch near Malta",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -258,7 +258,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07087050",
           name: "arkansas river",
-          geoTag: "BELOW GRANITE, CO",
+          geoTag: "below Granite",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -276,7 +276,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07091200",
           name: "arkansas river",
-          geoTag: "NEAR NATHROP, CO",
+          geoTag: "near Nathrop",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -294,7 +294,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07094500",
           name: "arkansas river",
-          geoTag: "AT PARKDALE, CO.",
+          geoTag: "at Parkdale",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -312,7 +312,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07099970",
           name: "arkansas river",
-          geoTag: "AT MOFFAT STREET AT PUEBLO, CO",
+          geoTag: "at Moffat St at Pueblo",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -330,7 +330,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07099973",
           name: "arkansas river TRIBUTARY",
-          geoTag: "ABOVE HWY 227 AT PUEBLO",
+          geoTag: "above Hwy 227 at Pueblo",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -348,7 +348,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07109500",
           name: "arkansas river",
-          geoTag: "NEAR AVONDALE, CO.",
+          geoTag: "near Avondale",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -366,7 +366,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07124000",
           name: "arkansas river",
-          geoTag: "AT LAS ANIMAS, CO.",
+          geoTag: "at Las Animas",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -384,7 +384,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07130500",
           name: "arkansas river",
-          geoTag: "BELOW JOHN MARTIN RESERVOIR, CO.",
+          geoTag: "below John Martin Reservoir",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -402,7 +402,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07133000",
           name: "arkansas river AT LAMAR, CO",
-          geoTag: "AT LAMAR, CO",
+          geoTag: "at Lamar",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -420,7 +420,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07134180",
           name: "arkansas river",
-          geoTag: "NEAR GRANADA, CO.",
+          geoTag: "near Granada",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -438,7 +438,7 @@ exports.seed = function(knex) {
         {
           usgsId: "07137500",
           name: "arkansas river",
-          geoTag: "NR COOLIDGE, KS",
+          geoTag: "near Coolidge",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -456,7 +456,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06620000",
           name: "north platte river",
-          geoTag: "NEAR NORTHGATE, CO",
+          geoTag: "near Northgate",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -474,7 +474,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06700000",
           name: "south platte river",
-          geoTag: "ABOVE CHEESMAN LAKE, CO.",
+          geoTag: "above Cheesman Lake",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -492,7 +492,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06701900",
           name: "south platte river",
-          geoTag: "BLW BRUSH CRK NEAR TRUMBULL, CO",
+          geoTag: "below Brush Creek Near Trumbull",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -510,7 +510,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06710247",
           name: "south platte river",
-          geoTag: "BELOW UNION AVE, AT ENGLEWOOD,C",
+          geoTag: "below Union Ave near Englewood",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -528,7 +528,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06711565",
           name: "south platte river",
-          geoTag: "AT ENGLEWOOD, CO.",
+          geoTag: "at Englewood",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -546,7 +546,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06714215",
           name: "south platte river",
-          geoTag: "AT 64TH AVE. COMMERCE CITY, CO.",
+          geoTag: "at 64th Ave Commerce City",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -564,7 +564,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06721000",
           name: "south platte river",
-          geoTag: "AT FORT LUPTON, CO.",
+          geoTag: "at Fort Lupton",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -582,7 +582,7 @@ exports.seed = function(knex) {
         {
           usgsId: "06759500",
           name: "south platte river",
-          geoTag: "AT FORT MORGAN, CO",
+          geoTag: "at Fort Morgan",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
