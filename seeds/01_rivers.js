@@ -5,7 +5,7 @@ exports.seed = function(knex) {
       return knex("rivers").insert([
         {
           name: "colorado river",
-          geoTag: "Below Baker Gulch NR Grand Lake",
+          geoTag: "below Baker Gulch NR Grand Lake",
           state: "CO",
           country: "USA",
           watershed: "colorado basin",
@@ -24,7 +24,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09015000",
           name: "colorado river",
-          geoTag: "Below Shadow Mountain Reservoir",
+          geoTag: "below Shadow Mountain Reservoir",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -42,7 +42,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09019000",
           name: "colorado river",
-          geoTag: "Below Lake Granby",
+          geoTag: "below Lake Granby",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -60,7 +60,7 @@ exports.seed = function(knex) {
         {
           usgsId: "09019500",
           name: "colorado river",
-          geoTag: "Near Grandby",
+          geoTag: "near Grandby",
           state: "CO",
           country: "USA",
           lat: "40.0589° N",
@@ -401,7 +401,7 @@ exports.seed = function(knex) {
         },
         {
           usgsId: "07133000",
-          name: "arkansas river AT LAMAR, CO",
+          name: "arkansas river",
           geoTag: "at Lamar",
           state: "CO",
           country: "USA",

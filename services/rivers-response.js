@@ -5,9 +5,26 @@ const formatRiverData = (rivers, favorite) => {
     let riverObj = {
       [river.usgsId]: { river, favorite }
     };
+    console.log(riverObj[river.usgsId].river.name);
+    riverObj[river.usgsId].river.name = titleCase(
+      riverObj[river.usgsId].river.name
+    );
+    riverObj[river.usgsId].river.watershed = titleCase(
+      riverObj[river.usgsId].river.watershed
+    );
+    console.log(riverObj[river.usgsId]);
     returnArr.push(riverObj);
   });
   return returnArr;
+};
+
+const titleCase = sentence => {
+  // return title cased sentence
+  const words = sentence.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+  }
+  return words.join(" ");
 };
 
 module.exports = { formatRiverData };
