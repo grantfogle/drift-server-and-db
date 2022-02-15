@@ -66,10 +66,7 @@ module.exports = {
   },
   removeUserFavorite(userId, usgsId) {
     return db("userstorivers")
-      .where({
-        userId: userId,
-        usgsId: usgsId
-      })
+      .where({ userId: userId, usgsId: usgsId })
       .delete();
   },
   getUsersToRivers() {

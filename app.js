@@ -151,13 +151,16 @@ app.get("/api/favorites", (req, res, next) => {
 
 app.post("/api/favorites", (req, res, next) => {
   const { userId, usgsId } = req.body;
-  queries.addUserFavorite(userFaves => {
+  queries.addUserFavorite(userId, usgsId).then(userFaves => {
     res.status(201).send({ message: "User favorite added" });
   });
 });
 
-app.delete("/api/user-favorite", () => {
-  const { usgsId, userId } = req.body;
+app.delete("/api/favorites", (req, res, next) => {
+  const { userId, usgsId } = req.body;
+  queries.removeUserFavorite(userId, usgsId).then(deletedRiver => {
+    res.status(201).send({ message: "User favorite delete" });
+  });
 });
 
 app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
