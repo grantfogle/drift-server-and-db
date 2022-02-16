@@ -135,7 +135,7 @@ app.get("/api/flows", (req, res, next) => {
 app.get("/api/favorites/:userId", (req, res, next) => {
   const { userId } = req.params;
   queries
-    .getUsersFavorites(2)
+    .getUsersFavorites(userId)
     .then(usersFaves => {
       const formattedUserFaves = formatRiverData(usersFaves, true);
       res.status(201).send(formattedUserFaves);

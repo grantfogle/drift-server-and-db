@@ -32,8 +32,6 @@ module.exports = {
           });
       }
     });
-    //
-    // return db()
   },
   getUsersFavorites(userId) {
     return db("userstorivers")
