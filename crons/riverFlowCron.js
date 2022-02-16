@@ -3,6 +3,8 @@ const cron = require("node-cron");
 const puppeteer = require("puppeteer");
 const queries = require("../queries");
 // const axios = require("axios");
+// const usgsWaterDataUrl =
+//   "https://waterservices.usgs.gov/nwis/iv/?format=rdb&sites=06006000,06012500,06016000,06017000,06018500&period=P1D&modifiedSince=PT30M&parameterCd=00060";
 
 function getCrons() {
   cron.schedule("* * * * *", () => {

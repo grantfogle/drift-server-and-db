@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.createTable("userstorivers", user => {
-    user.string("userId");
+    user.integer("userId");
     user.string("usgsId");
   });
 };

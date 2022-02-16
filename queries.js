@@ -32,10 +32,54 @@ module.exports = {
           });
       }
     });
-    //
-    // return db()
   },
-  getUsersFavorites() {
+  getUsersFavorites(userId) {
+    return db("userstorivers")
+      .select(
+        "rivers.name",
+        "rivers.geoTag",
+        "rivers.state",
+        "rivers.country",
+        "rivers.watershed",
+        "rivers.usgsId",
+        "rivers.lat",
+        "rivers.long",
+        "rivers.currentCFS",
+        "rivers.meanCFS",
+        "rivers.medianCFS",
+        "rivers.warmWater",
+        "rivers.lowWater",
+        "rivers.highWater",
+        "rivers.iced",
+        "rivers.defaultDisplay"
+      )
+      .join("rivers", "rivers.usgsId", "userstorivers.usgsId")
+      .join("users", "users.userId", "userstorivers.userId")
+      .where("users.userId", userId);
+  },
+  addUserFavorite(userId, usgsId) {
+    return db("userstorivers")
+      .insert({ userId, usgsId })
+      .returning("userId", "usgsId");
+  },
+  removeUserFavorite(userId, usgsId) {
+    return db("userstorivers")
+      .where({ userId: userId, usgsId: usgsId })
+      .delete();
+  },
+  getUsersToRivers() {
     return db("userstorivers");
+  },
+  getTopRivers() {
+    return db("rivers").where("defaultDisplay", true);
+  },
+  getByRiversId(riverId) {
+    return db("rivers").where("usgsId", riverId);
+  },
+  getByRivers(riverName) {
+    return db("rivers").where("name", riverName);
+  },
+  getByWatershed(watershedName) {
+    return db("rivers").where("watershed", watershedName);
   }
 };

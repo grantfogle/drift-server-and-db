@@ -5,8 +5,8 @@ exports.seed = function(knex) {
     .then(function() {
       // Inserts seed entries
       return knex("userstorivers").insert([
-        { userId: 1, usgsId: "013344" },
-        { userId: 2, usgsId: "045566" }
+        { userId: 1, usgsId: "06714215" },
+        { userId: 2, usgsId: "06759500" }
       ]);
     });
 };
