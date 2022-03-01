@@ -3,6 +3,6 @@
 module.exports = {
   development: {
     client: "pg",
-    connection: "postgresql://localhost/DRIFT_DB"
+    connection: "postgresql://localhost/driftdb"
   }
 };

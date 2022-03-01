@@ -1,7 +1,7 @@
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   return knex("rivers")
     .del()
-    .then(function() {
+    .then(function () {
       return knex("rivers").insert([
         {
           name: "colorado river",
@@ -51,10 +51,10 @@ exports.seed = function(knex) {
           currentCFS: 20.5,
           meanCFS: 0,
           medianCFS: 0,
-          warmWater: false,
+          warmWater: true,
           lowWater: false,
           highWater: false,
-          iced: true,
+          iced: false,
           defaultDisplay: true
         },
         {
@@ -70,9 +70,9 @@ exports.seed = function(knex) {
           meanCFS: 25,
           medianCFS: 26,
           warmWater: false,
-          lowWater: false,
+          lowWater: true,
           highWater: false,
-          iced: true,
+          iced: false,
           defaultDisplay: true
         },
         {
@@ -89,8 +89,8 @@ exports.seed = function(knex) {
           medianCFS: 78,
           warmWater: false,
           lowWater: false,
-          highWater: false,
-          iced: true,
+          highWater: true,
+          iced: false,
           defaultDisplay: false
         },
         {
@@ -105,10 +105,10 @@ exports.seed = function(knex) {
           currentCFS: 426,
           meanCFS: 517,
           medianCFS: 501,
-          warmWater: false,
-          lowWater: false,
+          warmWater: true,
+          lowWater: true,
           highWater: false,
-          iced: true,
+          iced: false,
           defaultDisplay: false
         },
         {
