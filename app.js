@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { fetchWebData } = require("./crons/riverFlowCron");
-const { formatRiverData } = require("./services/rivers-response");
+const { formatRiverData, setFavorites } = require("./services/rivers-response");
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";

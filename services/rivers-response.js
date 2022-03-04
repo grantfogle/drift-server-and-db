@@ -1,19 +1,11 @@
 const formatRiverData = (rivers, favorite) => {
-  const returnArr = [];
-
-  rivers.forEach(river => {
-    let riverObj = {
-      [river.usgsId]: { river, favorite }
-    };
-    riverObj[river.usgsId].river.name = titleCase(
-      riverObj[river.usgsId].river.name
-    );
-    riverObj[river.usgsId].river.watershed = titleCase(
-      riverObj[river.usgsId].river.watershed
-    );
-    returnArr.push(riverObj);
+  const titleCasedRivers = rivers.map(river => {
+    river.name = titleCase(river.name);
+    river.watershed = titleCase(river.watershed);
+    river.favorite = favorite;
+    return river;
   });
-  return returnArr;
+  return titleCasedRivers;
 };
 
 const titleCase = sentence => {
