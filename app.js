@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { fetchWebData } = require("./crons/riverFlowCron");
-const { formatRiverData } = require("./services/rivers-response");
+const { formatRiverData, setFavorites } = require("./services/rivers-response");
 // helper source https://karlmatthes.medium.com/node-authentication-with-express-and-knex-d2d8204537c5
 
 const hostname = "127.0.0.1";
@@ -108,7 +108,8 @@ app.post("/api/rivers", (req, res, next) => {
   queries
     .getByRivers(riverName)
     .then(rivers => {
-      res.send(rivers);
+      const formattedRiverData = formatRiverData(rivers, false);
+      res.send(formattedRiverData);
     })
     .catch(err => res.send({ status: "Error retrieving rivers" }));
 });
@@ -118,7 +119,8 @@ app.post("/api/watershed", (req, res, next) => {
   queries
     .getByWatershed(watershedName)
     .then(rivers => {
-      res.send(rivers);
+      const formattedRiverData = formatRiverData(rivers, false);
+      res.send(formattedRiverData);
     })
     .catch(err => res.send({ status: "Error retrieving rivers" }));
 });

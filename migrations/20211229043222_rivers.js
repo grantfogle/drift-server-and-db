@@ -17,6 +17,7 @@ exports.up = function(knex) {
     river.boolean("highWater");
     river.boolean("iced");
     river.boolean("defaultDisplay");
+    river.boolean("favorite");
   });
 };
 

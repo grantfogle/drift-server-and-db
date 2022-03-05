@@ -19,7 +19,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09015000",
@@ -37,7 +38,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09019000",
@@ -55,7 +57,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09019500",
@@ -73,7 +76,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09034250",
@@ -91,7 +95,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "09058000",
@@ -109,7 +114,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "09060799",
@@ -127,7 +133,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "09070500",
@@ -145,7 +152,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09085100",
@@ -163,7 +171,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09095500",
@@ -181,7 +190,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "09163500",
@@ -199,7 +209,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07079300",
@@ -217,7 +228,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07081200",
@@ -235,7 +247,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07083710",
@@ -253,7 +266,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07087050",
@@ -271,7 +285,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07091200",
@@ -289,7 +304,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07094500",
@@ -307,7 +323,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07099970",
@@ -325,7 +342,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07099973",
@@ -343,7 +361,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07109500",
@@ -361,7 +380,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07124000",
@@ -379,7 +399,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07130500",
@@ -397,7 +418,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07133000",
@@ -415,7 +437,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "07134180",
@@ -433,7 +456,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "07137500",
@@ -451,7 +475,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "06620000",
@@ -469,7 +494,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "06700000",
@@ -487,7 +513,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "06701900",
@@ -505,7 +532,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "06710247",
@@ -523,7 +551,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "06711565",
@@ -541,7 +570,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: false
+          defaultDisplay: false,
+          favorite: false
         },
         {
           usgsId: "06714215",
@@ -559,7 +589,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "06721000",
@@ -577,7 +608,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         },
         {
           usgsId: "06759500",
@@ -595,7 +627,8 @@ exports.seed = function(knex) {
           lowWater: false,
           highWater: false,
           iced: true,
-          defaultDisplay: true
+          defaultDisplay: true,
+          favorite: false
         }
       ]);
     });
