@@ -108,7 +108,8 @@ app.post("/api/rivers", (req, res, next) => {
   queries
     .getByRivers(riverName)
     .then(rivers => {
-      res.send(rivers);
+      const formattedRiverData = formatRiverData(rivers, false);
+      res.send(formattedRiverData);
     })
     .catch(err => res.send({ status: "Error retrieving rivers" }));
 });
@@ -118,7 +119,8 @@ app.post("/api/watershed", (req, res, next) => {
   queries
     .getByWatershed(watershedName)
     .then(rivers => {
-      res.send(rivers);
+      const formattedRiverData = formatRiverData(rivers, false);
+      res.send(formattedRiverData);
     })
     .catch(err => res.send({ status: "Error retrieving rivers" }));
 });
